@@ -31,8 +31,8 @@ if($show_header->state == "C" && preg_match("/^".$_GET["title"]."$/",$title) ){
 $show=json_decode(file_get_contents($show_header->href));
 $item = new Item();
 $item
-->title($title)
-->description($show->info)
+->title($show->title)
+->description($show->description)
 ->enclosure("http://loopstream01.apa.at/?channel=oe1&shoutcast=0&player=oe1_v1&referer=radiothek&id=".$show->streams[0]->loopStreamId)
 ->pubDate($show_header->niceTime / 1000)
 ->guid($show->id, true)
