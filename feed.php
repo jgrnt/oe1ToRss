@@ -27,7 +27,7 @@ foreach($day->broadcasts as $show_header)
 {
 $title = isset($show_header->programTitle) ? $show_header->programTitle : $show_header->title; 
 
-if(preg_match("/^".$_GET["title"]."$/",$title) ){
+if($show_header->state == "C" && preg_match("/^".$_GET["title"]."$/",$title) ){
 $show=json_decode(file_get_contents($show_header->href));
 $item = new Item();
 $item
