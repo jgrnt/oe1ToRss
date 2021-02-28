@@ -33,7 +33,7 @@ $item = new Item();
 $item
 ->title($show->title)
 ->description($show->description)
-->enclosure("http://loopstream01.apa.at/?channel=oe1&shoutcast=0&player=oe1_v1&referer=radiothek&id=".$show->streams[0]->loopStreamId)
+->enclosure("https://loopstream01.apa.at/?channel=oe1&shoutcast=0&player=radiothek_v1&referer=oe1.orf.at&id=".$show->streams[0]->loopStreamId)
 ->pubDate($show_header->niceTime / 1000)
 ->guid($show->id, true)
 ->appendTo($channel);
