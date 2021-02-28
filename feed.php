@@ -1,4 +1,5 @@
 <?php
+
 spl_autoload_register(function($c) { @include_once strtr($c, '\\_', '//').'.php'; });
 use \Suin\RSSWriter\Feed;
 use \Suin\RSSWriter\Channel;
@@ -32,7 +33,7 @@ $item = new Item();
 $item
 ->title($show->title)
 ->description($show->description)
-->enclosure($_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"].dirname($_SERVER["PHP_SELF"])."/mediaproxy.php?url=".urlencode("http://loopstream01.apa.at/?channel=oe1&shoutcast=0&player=oe1_v1&referer=radiothek&id=".$show->streams[0]->loopStreamId))
+->enclosure("http://loopstream01.apa.at/?channel=oe1&shoutcast=0&player=oe1_v1&referer=radiothek&id=".$show->streams[0]->loopStreamId)
 ->pubDate($show_header->niceTime / 1000)
 ->guid($show->id, true)
 ->appendTo($channel);
